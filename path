@@ -1,2 +1,3 @@
 #!/bin/sh
 echo "$PATH" | sed 's/:/\n/g'
+var = 2
