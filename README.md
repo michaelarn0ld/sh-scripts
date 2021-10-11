@@ -12,12 +12,24 @@ Make sure you ```shellcheck``` all scripts before using them.
 
 # Table of Contents
 ----
+1. [chmox](#chmox)
 1. [path](#path)
 
 |   Scripts   |   Summary
 |   :-:       |   -
 |   path      |   Prints an easy-to-read version of ```$PATH```
 |   chmox     |   Adds execution permissions to files (chmod +x)
+
+
+## chmox
+----
+Chmox is a script that adds execution privileges to an arbitrary number of files
+; it is intended to replace ```chmod +x [FILES...]```
+
+### USAGE
+```sh
+$ chmox [FILES...]
+```
 
 
 ## path
@@ -33,17 +45,6 @@ $ path
 /another/part/of/path
 /whatever/you/want
 ---------------------
-```
-
-
-## chmox
-----
-Chmox is a script that adds execution privileges to an arbitrary number of files
-; it is intended to replace ```chmod +x [FILES...]```
-
-### USAGE
-```sh
-$ chmox [FILES...]
 ```
 
 
