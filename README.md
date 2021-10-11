@@ -18,13 +18,13 @@ Make sure you ```shellcheck``` all scripts before using them.
 |   Scripts   |   Summary
 |   :-:       |   -
 |   path      |   Prints an easy-to-read version of ```$PATH```
-|   chmox     |   Adds execution permissions to files (chmod +x)
+|   chmox     |   Adds execution permissions to files
 
 
 ## chmox
 ----
-Chmox is a script that adds execution privileges to an arbitrary number of files
-; it is intended to replace ```chmod +x [FILES...]```
+Chmox is a script that adds execution privileges to an arbitrary number of files;
+it is intended to replace ```chmod +x [FILES...]```
 
 ### USAGE
 ```sh
