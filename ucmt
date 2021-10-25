@@ -1,0 +1,10 @@
+#!/bin/sh
+
+while IFS= read -r line; do 
+    comment="$(echo "$line" | sed 's/ .*//')"
+    if [ "$comment" = "#" ] || [ "$comment" = "//" ]; then
+        echo "$line" | sed 's/[^ ]* //'
+    else
+        echo "$line"
+    fi
+done

@@ -1,0 +1,15 @@
+#!/bin/sh
+
+if [ "$1" = "-fs" ]; then
+    comment="//"
+else
+    comment="#"
+fi
+
+while IFS= read -r line; do 
+    if test "${line#*$comment}" = "$line"; then
+        echo "$comment $line"
+    else
+        echo "$line"
+    fi
+done

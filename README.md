@@ -12,13 +12,30 @@ Make sure you ```shellcheck``` all scripts before using them.
 
 # Table of Contents
 ----
+1. [cmt](#cmt)
 1. [chmox](#chmox)
 1. [path](#path)
+1. [ucmt](#ucmt)
 
 |   Scripts   |   Summary
 |   :-:       |   -
-|   path      |   Prints an easy-to-read version of ```$PATH```
+|   cmt       |   Makes lines or code blocks into commments in vi
 |   chmox     |   Adds execution permissions to files
+|   path      |   Prints an easy-to-read version of ```$PATH```
+|   ucmt      |   Removes comments from code blocks in vi
+
+
+## cmt
+----
+Cmt is a script that allows you to turn lines/blocks of code into comments while
+in the vi editor. Since some languages use ```#``` for comments and others use
+```//```, you will need to specify the ```-fs``` option if you want to use the
+latter; ```#``` is the default
+
+### USAGE
+```sh
+$ cmt [-fs] < FILE
+```
 
 
 ## chmox
@@ -45,6 +62,17 @@ $ path
 /another/part/of/path
 /whatever/you/want
 ---------------------
+```
+
+
+## ucmt
+----
+Ucmt is a script that allows you to remove comment indicators from lines or 
+blocks of code while in the vi editor.
+
+### USAGE
+```sh
+$ ucmt < FILE
 ```
 
 
