@@ -29,8 +29,8 @@ Make sure you ```shellcheck``` all scripts before using them.
 ----
 Cmt is a script that allows you to turn lines/blocks of code into comments while
 in the vi editor. Since some languages use ```#``` for comments and others use
-```//```, you will need to specify the ```-fs``` option if you want to use the
-latter; ```#``` is the default
+```//```, you will need to specify the ```-ht``` option if you want to use the
+latter; ```// is the default
 
 ### USAGE
 ```sh
