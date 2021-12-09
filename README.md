@@ -22,7 +22,7 @@ Make sure you ```shellcheck``` all scripts before using them.
 |   :-:       |   -
 |   cmt       |   Makes lines or code blocks into commments in vi
 |   chmox     |   Adds execution permissions to files
-|   makemaven |   Creates a barebone directory structure for maven projects
+|   makemvn   |   Creates a barebone directory structure for maven projects
 |   path      |   Prints an easy-to-read version of ```$PATH```
 |   ucmt      |   Removes comments from code blocks in vi
 
