@@ -39,7 +39,7 @@ latter; ```// is the default
 $ cmt [-fs] < FILE
 ```
 \
-\
+
 ## chmox
 ----
 Chmox is a script that adds execution privileges to an arbitrary number of files;
@@ -49,7 +49,7 @@ it is intended to replace ```chmod +x [FILES...]```
 ```sh
 $ chmox [FILES...]
 ```
-
+\
 
 ## makemvn
 ----
@@ -61,7 +61,7 @@ project. Remember the java convention for naming packages:
 ```sh
 $ makemvn [ORG.PROJECT.CATEGORY] [GROUP_ID] [ARTIFACT_ID]
 ```
-
+\
 
 ## path
 ----
@@ -77,7 +77,7 @@ $ path
 /whatever/you/want
 ---------------------
 ```
-
+\
 
 ## ucmt
 ----
@@ -88,7 +88,7 @@ blocks of code while in the vi editor.
 ```sh
 $ ucmt < FILE
 ```
-
+\
 
 # Contributors
 ----
