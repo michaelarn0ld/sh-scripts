@@ -1,0 +1,41 @@
+#!/usr/bin/sh
+
+## barebones arguments we need to generate a maven project structure
+package="$1"
+group_id="$2"
+artifact_id="$3"
+
+## create the directory structure for a barebones maven project
+dir="main/java/$(echo "$package" | sed 's/\./\//g')/"
+mkdir -p src/"$dir"
+mkdir -p test/"$dir"
+
+## creates the barebones POM file for the maven project
+pomxml="pom.xml"
+echo "
+<project xmlns=http://maven.apache.org/POM/4.0.0
+         xmlns:xsi=http://www.w3.org/2001/XMLSchema-instance
+         xsi:schemaLocation=http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd>
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>$group_id</groupId>
+    <artifactId>$artifact_id</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+    </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.6.2</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+</project>
+" > "$pomxml"
+

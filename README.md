@@ -21,6 +21,7 @@ Make sure you ```shellcheck``` all scripts before using them.
 |   :-:       |   -
 |   cmt       |   Makes lines or code blocks into commments in vi
 |   chmox     |   Adds execution permissions to files
+|   makemaven |   Creates a barebone directory structure for maven projects
 |   path      |   Prints an easy-to-read version of ```$PATH```
 |   ucmt      |   Removes comments from code blocks in vi
 
@@ -46,6 +47,18 @@ it is intended to replace ```chmod +x [FILES...]```
 ### USAGE
 ```sh
 $ chmox [FILES...]
+```
+
+
+## makemvn
+----
+Makemvn is a command line tool for you to easily setup a barebones maven
+project. Remember the java convention for naming packages:
+***Organization -> Project -> Category***
+
+### USAGE
+```sh
+$ makemvn [ORG.PROJECT.CATEGORY] [GROUP_ID] [ARTIFACT_ID]
 ```
 
 
