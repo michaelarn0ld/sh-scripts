@@ -14,6 +14,7 @@ Make sure you ```shellcheck``` all scripts before using them.
 ----
 1. [cmt](#cmt)
 1. [chmox](#chmox)
+1. [makemvn](#makemvn)
 1. [path](#path)
 1. [ucmt](#ucmt)
 
@@ -37,8 +38,8 @@ latter; ```// is the default
 ```sh
 $ cmt [-fs] < FILE
 ```
-
-
+\
+\
 ## chmox
 ----
 Chmox is a script that adds execution privileges to an arbitrary number of files;
