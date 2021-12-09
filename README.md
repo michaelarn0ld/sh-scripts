@@ -38,7 +38,7 @@ latter; ```// is the default
 ```sh
 $ cmt [-fs] < FILE
 ```
-\
+<br><br>
 
 ## chmox
 ----
@@ -49,7 +49,7 @@ it is intended to replace ```chmod +x [FILES...]```
 ```sh
 $ chmox [FILES...]
 ```
-\
+<br><br>
 
 ## makemvn
 ----
@@ -61,7 +61,7 @@ project. Remember the java convention for naming packages:
 ```sh
 $ makemvn [ORG.PROJECT.CATEGORY] [GROUP_ID] [ARTIFACT_ID]
 ```
-\
+<br><br>
 
 ## path
 ----
@@ -77,7 +77,7 @@ $ path
 /whatever/you/want
 ---------------------
 ```
-\
+<br><br>
 
 ## ucmt
 ----
@@ -88,7 +88,7 @@ blocks of code while in the vi editor.
 ```sh
 $ ucmt < FILE
 ```
-\
+<br><br>
 
 # Contributors
 ----
