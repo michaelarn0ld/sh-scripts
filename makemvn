@@ -8,6 +8,7 @@ artifact_id="$3"
 ## create the directory structure for a barebones maven project
 dir="main/java/$(echo "$package" | sed 's/\./\//g')/"
 mkdir -p src/"$dir"
+mkdir -p src/main/resources/
 mkdir -p test/"$dir"
 
 ## creates the barebones POM file for the maven project
