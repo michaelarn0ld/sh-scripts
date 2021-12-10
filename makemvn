@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/bin/sh
 
 ## barebones arguments we need to generate a maven project structure
 package="$1"
