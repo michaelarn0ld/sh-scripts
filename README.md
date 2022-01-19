@@ -12,6 +12,7 @@ Make sure you ```shellcheck``` all scripts before using them.
 
 # Table of Contents
 ----
+1. [barebones-react](#barebones-react)
 1. [cmt](#cmt)
 1. [chmox](#chmox)
 1. [makemvn](#makemvn)
