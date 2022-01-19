@@ -18,14 +18,31 @@ Make sure you ```shellcheck``` all scripts before using them.
 1. [path](#path)
 1. [ucmt](#ucmt)
 
-|   Scripts   |   Summary
-|   :-:       |   -
-|   cmt       |   Makes lines or code blocks into commments in vi
-|   chmox     |   Adds execution permissions to files
-|   makemvn   |   Creates a barebone directory structure for maven projects
-|   path      |   Prints an easy-to-read version of ```$PATH```
-|   ucmt      |   Removes comments from code blocks in vi
+|   Scripts            |   Summary
+|   :-:                |   -
+|   barebones-react    |   auto-install dependencies for a barebones react app
+|   cmt                |   Makes lines or code blocks into commments in vi
+|   chmox              |   Adds execution permissions to files
+|   makemvn            |   Creates a barebone directory structure for maven projects
+|   path               |   Prints an easy-to-read version of ```$PATH```
+|   ucmt               |   Removes comments from code blocks in vi
 
+
+## barebones-react
+----
+This is an installation script for React applications, when you do not feel like
+using ```create-react-app```. It is a lot lighter, but requires more
+configuration.
+
+### USAGE
+```sh
+$ barebones-react
+```
+
+### DEPENDENCIES
+* ```node```
+* ```npm```
+<br><br>
 
 ## cmt
 ----
