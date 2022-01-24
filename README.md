@@ -15,13 +15,13 @@ Make sure you ```shellcheck``` all scripts before using them.
 1. [cmt](#cmt)
 1. [chmox](#chmox)
 1. [makemvn](#makemvn)
+1. [makereact](#makereact)
 1. [path](#path)
-1. [slimreact](#slimreact)
 1. [ucmt](#ucmt)
 
 |   Scripts            |   Summary
 |   :-:                |   -
-|   slimreact          |   auto-install dependencies for a barebones react app
+|   makereact          |   auto-install dependencies for a barebones react app
 |   cmt                |   Makes lines or code blocks into commments in vi
 |   chmox              |   Adds execution permissions to files
 |   makemvn            |   Creates a barebone directory structure for maven projects
@@ -65,6 +65,22 @@ $ makemvn [ORG.PROJECT.CATEGORY] [GROUP_ID] [ARTIFACT_ID]
 ```
 <br><br>
 
+## makereact
+----
+This is an installation script for React applications, when you do not feel like
+using ```create-react-app```. It is a lot lighter, but requires more
+configuration.
+
+### USAGE
+```sh
+$ makereact
+```
+
+### DEPENDENCIES
+* ```node```
+* ```npm```
+<br><br>
+
 ## path
 ----
 Path is a simple one-liner script for displaying your ```$PATH``` environment
@@ -79,22 +95,6 @@ $ path
 /whatever/you/want
 ---------------------
 ```
-<br><br>
-
-## slimreact
-----
-This is an installation script for React applications, when you do not feel like
-using ```create-react-app```. It is a lot lighter, but requires more
-configuration.
-
-### USAGE
-```sh
-$ slimreact
-```
-
-### DEPENDENCIES
-* ```node```
-* ```npm```
 <br><br>
 
 ## ucmt
