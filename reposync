@@ -1,0 +1,62 @@
+#!/bin/sh
+
+# -----------------------------
+# @Author: Michael Arnold
+# @Contact: me@michaelarnold.io
+# -----------------------------
+
+unclean_repos=""
+DIR="./.git"
+
+function check_directory() {
+  if [ -d "$DIR" ]; then
+    echo "ERROR: CANNOT RUN THIS COMMAND INSIDE A GIT DIRECTORY"
+    echo "HINT: TRY RUNNING THIS IN THE PARENT DIRECTORY"
+    exit 1
+  fi
+}
+
+function sync() {
+  echo "ABOUT TO SYNC REPO: $i"
+  git pull --rebase &> /dev/null || exit_on_error "$1"
+  git push &> /dev/null || exit_on_error "$1"
+  echo "SUCCESSFULLY SYNCED REPO: $i"
+}
+
+function add_unclean_repo() {
+  unclean_repos="$unclean_repos $1"
+}
+
+function exit_on_error() {
+  echo "FAILED TO SYNC REPO: $1"
+  exit 1
+}
+
+function print_unclean_repos() {
+  echo "======================================================================="
+  for i in $unclean_repos; do
+    echo "UNCOMMITTED CHANGES IN REPOSITORY: $i"
+  done
+}
+
+function main() {
+  for i in $(ls --color=none); do
+    cd "$i" 
+    is_clean="$(git status | grep "nothing to commit, working tree clean")"
+
+    # if there are uncommitted changes then we should not sync; else we sync
+    if [ -z "$is_clean" ]; then
+      add_unclean_repo "$i"
+    else
+      sync "$i" &
+      printf "\n"
+    fi
+    cd ..
+  done
+  # wait until ALL background processes are done, needs work.
+  wait
+  print_unclean_repos
+}
+
+check_directory
+main
