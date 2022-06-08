@@ -5,11 +5,10 @@
 # @Contact: me@michaelarnold.io
 # -----------------------------
 
-unclean_repos=""
 DIR="./.git"
 TMP="../tmp"
 
-function check_directory() {
+check_directory() {
   if [ -d "$DIR" ]; then
     echo "ERROR: CANNOT RUN THIS COMMAND INSIDE A GIT DIRECTORY"
     echo "HINT: TRY RUNNING THIS IN THE PARENT DIRECTORY"
@@ -17,41 +16,41 @@ function check_directory() {
   fi
 }
 
-function sync() {
+sync() {
   echo "ABOUT TO SYNC REPO: $i"
-  git pull --rebase &> /dev/null || exit_on_error "$1"
-  git push &> /dev/null || exit_on_error "$1"
+  git pull --rebase > /dev/null 2> /dev/null || exit_on_error "$1"
+  git push > /dev/null 2> /dev/null || exit_on_error "$1"
   echo "SUCCESSFULLY SYNCED REPO: $i"
 }
 
-function add_unclean_repo() {
+add_unclean_repo() {
   echo "-----------------------------------------------------------------------"
   echo "ADDING UNCLEAN REPO: $1"
   echo "$1" >> "$TMP"
   echo "-----------------------------------------------------------------------"
 }
 
-function exit_on_error() {
+exit_on_error() {
   echo "-----------------------------------------------------------------------"
   echo "FAILED TO SYNC REPO: $1"
   exit 1
   echo "-----------------------------------------------------------------------"
 }
 
-function print_unclean_repos() {
+print_unclean_repos() {
   echo "======================================================================="
   if [ -f tmp ]; then
     echo "REPOS THAT HAVE UNCOMMITTED CHANGES:"
-    while read line; do
+    while read -r line; do
       echo "  *  $line"
     done < tmp
     rm tmp
   fi
 }
 
-function main() {
+main() {
   (for i in $(ls --color=none); do
-    cd "$i" 
+    cd "$i" || exit 1 
     if [ ! -d "$DIR" ]; then
       echo "WARN: $i is not a git repository"
       cd ..

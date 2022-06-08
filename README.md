@@ -16,6 +16,7 @@ Make sure you ```shellcheck``` all scripts before using them.
 1. [chmox](#chmox)
 1. [makemvn](#makemvn)
 1. [makereact](#makereact)
+1. [reposync](#reposync)
 1. [path](#path)
 1. [ucmt](#ucmt)
 
@@ -26,6 +27,7 @@ Make sure you ```shellcheck``` all scripts before using them.
 |   chmox              |   Adds execution permissions to files
 |   makemvn            |   Creates a barebone directory structure for maven projects
 |   path               |   Prints an easy-to-read version of ```$PATH```
+|   reposync           |   Syncs your local and remote repos, from a parent directory
 |   ucmt               |   Removes comments from code blocks in vi
 
 
@@ -94,6 +96,19 @@ $ path
 /another/part/of/path
 /whatever/you/want
 ---------------------
+```
+<br><br>
+
+## reposync
+----
+Reposync is a tool that you can use to sync all of your git repositories in a
+given parent repo; if there are non-git directories in the place where it is 
+called, it may cause issues. Do not call it from a git repo directory, instead
+call it from the direct parent directory.
+
+### USAGE
+```sh
+$ reposync
 ```
 <br><br>
 
