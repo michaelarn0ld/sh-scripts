@@ -7,6 +7,7 @@
 
 unclean_repos=""
 DIR="./.git"
+TMP="../tmp"
 
 function check_directory() {
   if [ -d "$DIR" ]; then
@@ -24,24 +25,38 @@ function sync() {
 }
 
 function add_unclean_repo() {
-  unclean_repos="$unclean_repos $1"
+  echo "-----------------------------------------------------------------------"
+  echo "ADDING UNCLEAN REPO: $1"
+  echo "$1" >> "$TMP"
+  echo "-----------------------------------------------------------------------"
 }
 
 function exit_on_error() {
+  echo "-----------------------------------------------------------------------"
   echo "FAILED TO SYNC REPO: $1"
   exit 1
+  echo "-----------------------------------------------------------------------"
 }
 
 function print_unclean_repos() {
   echo "======================================================================="
-  for i in $unclean_repos; do
-    echo "UNCOMMITTED CHANGES IN REPOSITORY: $i"
-  done
+  if [ -f tmp ]; then
+    echo "REPOS THAT HAVE UNCOMMITTED CHANGES:"
+    while read line; do
+      echo "  *  $line"
+    done < tmp
+    rm tmp
+  fi
 }
 
 function main() {
-  for i in $(ls --color=none); do
+  (for i in $(ls --color=none); do
     cd "$i" 
+    if [ ! -d "$DIR" ]; then
+      echo "WARN: $i is not a git repository"
+      cd ..
+      continue
+    fi
     is_clean="$(git status | grep "nothing to commit, working tree clean")"
 
     # if there are uncommitted changes then we should not sync; else we sync
@@ -49,12 +64,11 @@ function main() {
       add_unclean_repo "$i"
     else
       sync "$i" &
-      printf "\n"
     fi
     cd ..
-  done
-  # wait until ALL background processes are done, needs work.
-  wait
+  done; wait) & all_proc=$!
+  # wait until ALL background processes are done, needs a better solution
+  wait $all_proc
   print_unclean_repos
 }
 
